@@ -31,8 +31,8 @@ int main(){
 
     pthread_t thread_plus;
     pthread_t thread_minus;
-    pth_create(&thread_plus, NULL, incrementThreadFunction, NULL);
-    pth_create(&thread_minus, NULL, decrementThreadFunction, NULL);
+    pth_create(&thread_plus, NULL, incrementingThreadFunction, NULL);
+    pth_create(&thread_minus, NULL, decrementingThreadFunction, NULL);
     
     // TODO:
     // wait for the two threads to be done before printing the final result
