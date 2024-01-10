@@ -3,14 +3,17 @@
 
 #include <pthread.h>
 #include <stdio.h>
-int i = 0;
+int i = -1;
+pthread_mutex_t lock;
 
 
 // Note the return type: void*
 void* incrementingThreadFunction(){
     // TODO: increment i 1_000_000 times
     for (int j = 0; j < 1000000; j++) {
+        pthread_mutex_lock(&lock);
         i++;
+        pthread_mutex_unlock(&lock);
     }
     return NULL;
 }
@@ -18,7 +21,9 @@ void* incrementingThreadFunction(){
 void* decrementingThreadFunction(){
     // TODO: decrement i 1_000_000 times
     for (int j = 0; j < 1000000; j++) {
+        pthread_mutex_lock(&lock);
         i--;
+        pthread_mutex_unlock(&lock);
     }
     return NULL;
 }
@@ -40,7 +45,9 @@ int main(){
 
     pthread_join(thread_plus, NULL);
     pthread_join(thread_minus, NULL);
-    
+    pthread_mutex_destroy(&lock);
+
+
     printf("The magic number is: %d\n", i);
     return 0;
 }

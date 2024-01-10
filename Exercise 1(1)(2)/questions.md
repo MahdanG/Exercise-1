@@ -4,11 +4,13 @@ Exercise 1 - Theory questions
 ### Concepts
 
 What is the difference between *concurrency* and *parallelism*?
-> *Your answer here*
+
+Parallelism involves performing multible tasks at the same time in parallell. Concurrency however involves performing multible task at once but not nesseseraly at the same time. It often involves switching between steps within the tasks.
 
 What is the difference between a *race condition* and a *data race*? 
-> *Your answer here* 
- 
+
+Both issues with concurrent programming, where data race is a type of race condition. Data race means that multible tasks tries to acces the same piece of data without propper synchronization, as a result the data might be altered by one of the tasks, corrupting the data for the other tasks, leading to unwanted behavior. Race conditions is a broader term refering to issues where the outcome depends on the sequence or timing of uncontolable events.
+
 *Very* roughly - what does a *scheduler* do, and how does it do it?
 > *Your answer here* 
 
