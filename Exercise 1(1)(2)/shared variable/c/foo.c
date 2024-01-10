@@ -10,7 +10,7 @@ int i = 0;
 void* incrementingThreadFunction(){
     // TODO: increment i 1_000_000 times
     for (int j = 0; j < 1000000; j++) {
-        i++
+        i++;
     }
     return NULL;
 }
@@ -18,7 +18,7 @@ void* incrementingThreadFunction(){
 void* decrementingThreadFunction(){
     // TODO: decrement i 1_000_000 times
     for (int j = 0; j < 1000000; j++) {
-        i--
+        i--;
     }
     return NULL;
 }
@@ -31,8 +31,8 @@ int main(){
 
     pthread_t thread_plus;
     pthread_t thread_minus;
-    pth_create(&thread_plus, NULL, incrementingThreadFunction, NULL);
-    pth_create(&thread_minus, NULL, decrementingThreadFunction, NULL);
+    pthread_create(&thread_plus, NULL, incrementingThreadFunction, NULL);
+    pthread_create(&thread_minus, NULL, decrementingThreadFunction, NULL);
     
     // TODO:
     // wait for the two threads to be done before printing the final result
